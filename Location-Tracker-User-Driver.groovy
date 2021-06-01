@@ -243,20 +243,21 @@ def sendStatusTile1() {
     }
     sendEvent(name: "bpt-statusTile1", value: tileMap, displayed: true)
 
-    //MurnControl 
+    // ***** Simple tile for MurnControl *****
     MtileMap = "<div style='overflow:auto;height:100%;width:100%;margin-left:4px'>"
     MtileMap += "<div style='font-size:0.6em'><a href='https://www.google.com/maps/search/?api=1&amp;query=39.088066,-74.84112' target='_blank'>${add1}</a><br>${dateSince}</div>"
     MtileMap += "<div><img src='${avat}'style='width:56%;height:56%;border-radius:50%;border:2px solid #8eff00'></div>"
     MtileMap += "</div>"
 
-
     MtileDevice1Count = tileMap.length()
     if(MtileDevice1Count <= 1000) {
-    if(logEnable) log.debug "tileMap - has ${MtileDevice1Count} Characters<br>${tileMap}"
+    if(logEnable) log.debug "tileMap - has ${MtileDevice1Count} Characters<br>${MtileMap}"
     } else {
       log.warn "In MURNsendStatusTile1 - Too many characters to display on Dashboard (${MtileDevice1Count})"
     }
     sendEvent(name: "MURN-statusTile1", value: MtileMap, displayed: true)
+    // MurnControl tile end
+  
 }
 
 def sendHistory(msgValue) {
